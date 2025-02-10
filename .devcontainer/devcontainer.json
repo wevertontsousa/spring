@@ -1,0 +1,34 @@
+{
+    "name": "Ecossistema Spring",
+    "dockerComposeFile": [
+        "../.docker/docker-compose.yaml"
+    ],
+    "service": "spring-service",
+    "workspaceFolder": "/app",
+    "forwardPorts": [
+        8081
+    ],
+    "portsAttributes": {
+        "8081": {
+            "label": "Spring",
+            "onAutoForward": "silent"
+        }
+    },
+    "shutdownAction": "stop",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "redhat.java",
+                "vscjava.vscode-spring-initializr",
+                "vscjava.vscode-spring-boot-dashboard"
+            ]
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true
+        }
+    }
+}
