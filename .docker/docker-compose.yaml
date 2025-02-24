@@ -1,0 +1,19 @@
+services:
+  spring-service:
+    container_name: spring-service
+    environment:
+      - APP_ROOT_PATH=${APP_ROOT_PATH}
+    build:
+      context: ./
+    image: wevertontsousa/amazoncorretto:alpine
+    volumes:
+      - ../:${APP_ROOT_PATH}:cached
+      - ~/.ssh:${SSH_ROOT_PATH}:cached
+    networks:
+      - spring-network
+
+networks:
+  spring-network:
+    name: spring-network
+    driver: bridge
+    external: false
